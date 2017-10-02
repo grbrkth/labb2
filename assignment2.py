@@ -6,6 +6,14 @@ import numpy , pylab , random , math
 def linear_kernel(x,y):
     return sum([x_i*y_i for x_i,y_i in zip(x,y)])+1
 
+def radial_kernel(x, y, sigma):
+
+    gamma = (-1)/(2*(sigma**2))
+
+    k = gamma*sum([numpy.linalg.norm(math.pow((x_i-y_i),2)) for x_i,y_i in zip(x,y)])
+
+    return math.exp(k)
+
 def poly_kernel(x,y,p):
     return linear_kernel(x,y)**p
 
