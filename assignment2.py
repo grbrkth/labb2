@@ -10,9 +10,9 @@ def radial_kernel(x, y, sigma):
 
     gamma = (-1)/(2*(sigma**2))
 
-    k = gamma*sum([numpy.linalg.norm(math.pow((x_i-y_i),2)) for x_i,y_i in zip(x,y)])
-
-    return math.exp(k)
+    #k = gamma*sum([numpy.linalg.norm(math.pow((x_i-y_i),2)) for x_i,y_i in zip(x,y)])
+    return math.exp(gamma*(numpy.linalg.norm(x-y)**2))
+    #return math.exp(k)
 
 def poly_kernel(x,y,p):
     return linear_kernel(x,y)**p
